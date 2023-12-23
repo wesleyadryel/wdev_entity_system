@@ -78,8 +78,7 @@ end
 ------------ NUI MESSAGE ------------------------------
 -------------------------------------------------------
 
----@param action string The action you wish to target
----@param data any The data you wish to send along with this action
+
 local function SendReactMessage(action, data)
     SendNUIMessage({
         action = action,
@@ -1034,10 +1033,6 @@ _menuPool:ControlDisablingEnabled(false)
 _menuPool:RefreshIndex()
 _menuPool:TotalItemsPerPage(maximumItemsPerPage)
 
---[[ local size = _menuPool.Rectangle:Size()
-print('size '..tostring(size)) ]]
---[[ local sprite = _menuPool:CreateSprite('shopui_title_barber', 'shopui_title_barber', 0, 0, Width, Height, Heading, R, G, B, A)
-mainMenu:SetBannerSprite('shopui_title_barber', true) ]]
 
 menu_item_enabled(mainMenu)
 addRadiusSelectDefaultMenu()
