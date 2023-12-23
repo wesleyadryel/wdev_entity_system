@@ -7,7 +7,7 @@ The script operates with some limitations when there is more than one player on 
 Includes several exports, both for the client and server, allowing you to invoke the menu from within other scripts.
 
 
-# USE MENU
+## USE MENU
 Command:
 ```/menu```
 or change the [Config](https://github.com/wesleyadryel/wdev_entity_system/blob/fivem-v1/config/config.lua#L4)
