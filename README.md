@@ -13,8 +13,7 @@ Command:
 or change the [Config](https://github.com/wesleyadryel/wdev_entity_system/blob/fivem-v1/config/config.lua#L4)
 
 ---------------------------------------------------------------------------------------------------------------
-
-![image](https://github.com/wesleyadryel/wdev_entity_system/assets/44826120/7a96e3bc-d3d8-4ce2-bc79-af845e4a5fba) 
+![image](https://github.com/wesleyadryel/wdev_entity_system/assets/44826120/65ff57e9-0921-4f8c-815b-cf3d46b49a5e)
 
 ![image](https://github.com/wesleyadryel/wdev_entity_system/assets/44826120/857a2ce3-9cbe-4c23-9f11-c190a45a9736)
 
