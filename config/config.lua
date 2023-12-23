@@ -5,6 +5,7 @@ Config.commandOpen = 'menu' -- or false to disable
 Config.createEntitiesWithNetwork = true
 Config.LimitListEntitiesPool = false -- number or false/0 to disable
 Config.maximumItemsPerPage =  5
+
 Config.LineColors = {
     all = {
         vehicles ={r=177, g=52, b=209, a=255},
