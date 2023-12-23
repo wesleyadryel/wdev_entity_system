@@ -33,7 +33,7 @@ Feel free to explore and integrate these exports into your scripts to invoke the
 For any issues or suggestions, please refer to the Issues section of this repository.
 
 # RELEASES
-Check out the releases at https://github.com/wesleyadryel/wdev_entity_system/releases. Download the FIVEM RESOURCE if you only need production files, or grab the source code for development files.
+Check out the releases at [Releases](https://github.com/wesleyadryel/wdev_entity_system/releases). Download the FIVEM RESOURCE if you only need production files, or grab the source code for development files.
 
 ## DEV MODE
 Go to the project dev folder
