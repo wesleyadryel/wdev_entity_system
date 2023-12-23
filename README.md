@@ -1,7 +1,7 @@
 # Wdev Entity System
 
 
-This project encompasses an interactive menu for FIVEM, designed for controlling nearby entities. The menu allows users to view information about vehicles, peds, and objects. It also facilitates actions such as moving, deleting, and performing other interactions on these entities. Additionally, users can create new entities through the menu.
+This project is a standalone interactive menu for FIVEM designed to control nearby entities. The menu provides users with information about vehicles, peds, and objects, enabling actions such as movement, deletion, and other interactions on these entities. Users can also create new entities through the menu.
 The script operates with some limitations when there is more than one player on the server. However, it strives to request entity control when necessary.
 
 Includes several exports, both for the client and server, allowing you to invoke the menu from within other scripts.
