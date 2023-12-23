@@ -56,7 +56,6 @@ or change the [Config](https://github.com/wesleyadryel/wdev_entity_system/blob/f
 * **Delete Entity:** Remove the selected object entity.
 * **Move Entity:** Change the position of the selected object entity.
 * **Freeze Entity:** Prevent the selected object entity from moving.
-* **Kill/Revive Pedestrian:** Cause the death or revive the selected object.
 * **Selected Entity Indicator:** Highlight the currently selected object entity.
 
 # Exports
