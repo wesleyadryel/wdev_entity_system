@@ -1,6 +1,6 @@
 Config = {}
 
-Config.validatePermission = 'wdev_entity_system:admin' -- or false to disable
+Config.validatePermission = false -- 'wdev_entity_system:admin' -- false to disable
 Config.commandOpen = 'menu' -- or false to disable
 Config.createEntitiesWithNetwork = true
 Config.LimitListEntitiesPool = false -- number or false/0 to disable
