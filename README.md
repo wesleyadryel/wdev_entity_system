@@ -10,7 +10,7 @@ Includes several exports, both for the client and server, allowing you to invoke
 # USE MENU
 Command:
 ```/menu```
-Or change the [Config](https://github.com/wesleyadryel/wdev_entity_system/blob/fivem-v1/config/config.lua#L4)
+or change the [Config](https://github.com/wesleyadryel/wdev_entity_system/blob/fivem-v1/config/config.lua#L4)
 
 ---------------------------------------------------------------------------------------------------------------
 
