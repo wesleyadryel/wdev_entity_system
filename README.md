@@ -32,4 +32,22 @@ In the configuration file, you have the option to define an "ace" permission to 
 Feel free to explore and integrate these exports into your scripts to invoke the menu functionality from elsewhere in your project.
 For any issues or suggestions, please refer to the Issues section of this repository.
 
-## Thank you for using the FIVEM Entity System Menu!
+# RELEASES
+Check out the releases at https://github.com/wesleyadryel/wdev_entity_system/releases. Download the FIVEM RESOURCE if you only need production files, or grab the source code for development files.
+
+## DEV MODE
+Go to the project dev folder
+```cd web/dev```
+
+Install dependencies
+```yarn install``` or ```npm install```
+
+Launch developer mode
+```yarn dev``` or ```npm run dev```
+
+Access developer mode in the browser
+```http://localhost:5173```
+
+Build the project with the command
+```yarn build``` or ```npm run build```
+
