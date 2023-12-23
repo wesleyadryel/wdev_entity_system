@@ -6,6 +6,11 @@ The script operates with some limitations when there is more than one player on 
 
 Includes several exports, both for the client and server, allowing you to invoke the menu from within other scripts.
 
+![image](https://github.com/wesleyadryel/wdev_entity_system/assets/44826120/7a96e3bc-d3d8-4ce2-bc79-af845e4a5fba)
+
+![image](https://github.com/wesleyadryel/wdev_entity_system/assets/44826120/857a2ce3-9cbe-4c23-9f11-c190a45a9736)
+
+
 # Exports
 ## Client Side:
 ```
