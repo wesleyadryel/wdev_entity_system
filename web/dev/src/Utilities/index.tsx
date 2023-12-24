@@ -8,7 +8,6 @@ const NuiUtilities = () => {
     const [timeout, setTimeout_] = useState<NodeJS.Timeout|undefined>(undefined);
 
     const copyTextToClipboard = (text: string) => {
-        // Cria um elemento textarea temporário para copiar o texto para a área de transferência
         const textarea = document.createElement("textarea");
         textarea.value = text;
         document.body.appendChild(textarea);
