@@ -30,6 +30,24 @@ mainMenuCallbacks.OnMenuChanged = {}
 mainMenuCallbacks.OnCheckboxChange = {}
 mainMenuCallbacks.OnListChange = {}
 
+---- OUTLINE
+------------
+SetEntityDrawOutlineColor(255, 255, 255, 250)
+---
+
+local setSelectedEntity = function(entity)
+    if selectedEntity and entity and (selectedEntity ~= entity) then
+        SetEntityDrawOutline(selectedEntity, false)
+        selectedEntity = entity
+        SetEntityDrawOutline(entity, true)
+    else
+        if selectedEntity and not entity then
+            SetEntityDrawOutline(selectedEntity, false)
+        end
+        selectedEntity = entity
+    end
+end
+
 local forceControlOfEntity = function(entity, cb)
     if entity then
         if not threadForceControl then
@@ -59,6 +77,7 @@ end
 local cancelAllThreads = function()
     enable_AllLinesThread = false
     enable_LineThread = false
+    setSelectedEntity(false)
 end
 
 local defaultColor = {
@@ -77,7 +96,6 @@ end
 -------------------------------------------------------
 ------------ NUI MESSAGE ------------------------------
 -------------------------------------------------------
-
 
 local function SendReactMessage(action, data)
     SendNUIMessage({
@@ -225,7 +243,7 @@ local lineThread = function()
             while enable_LineThread do
                 if selectedEntity and pCoords then
                     if not DoesEntityExist(selectedEntity) then
-                        selectedEntity = false
+                        setSelectedEntity(false)
                         cds = false
                     else
                         ped = PlayerPedId()
@@ -750,7 +768,7 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
             listProps = getPool(objectGamePool, radius_submenu)
             if menuItems.propMenu then
                 menuItems.propMenu:updateItems(listProps)
-                selectedEntity = listProps[1] or nil
+                setSelectedEntity(listProps[1] or nil)
                 menuItems.propMenu._Index = 1
 
                 if selectedEntity then
@@ -939,7 +957,7 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
 
                 if _list == menuItems.propMenu then
                     local propId = _list:IndexToItem(_newindex)
-                    selectedEntity = propId
+                    setSelectedEntity(propId)
                     if propId and propId ~= 'N/A' and type(propId) == 'number' and tonumber(propId) > 0 then
                         toggleMutableMenuOptions(true)
                     else
@@ -962,7 +980,7 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
                 if menuItems.lineMenu then
                     NativeUI.checkedItem(menuItems.lineMenu, false)
                 end
-                selectedEntity = false
+                setSelectedEntity(false)
                 if menuItems.propMenu then
                     menuItems.propMenu._Index = 0
                 end
@@ -1032,7 +1050,6 @@ _menuPool:MouseEdgeEnabled(false)
 _menuPool:ControlDisablingEnabled(false)
 _menuPool:RefreshIndex()
 _menuPool:TotalItemsPerPage(maximumItemsPerPage)
-
 
 menu_item_enabled(mainMenu)
 addRadiusSelectDefaultMenu()
