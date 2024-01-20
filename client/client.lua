@@ -686,11 +686,11 @@ local function menu_item_propInformation(menu)
 
         local addCallbacks = function()
 
-            table.insert(mainMenuCallbacks.OnMenuChanged, function(_menu, _newmenu, _forward)
-                if menu == _newmenu then
+            menu.OnMenuChanged = function(_menu, _newmenu, forward) --
+                if menu == _menu then
                     onOpenMenu()
                 end
-            end)
+            end
 
             submenu.OnItemSelect = function(sender, item, index)
 
