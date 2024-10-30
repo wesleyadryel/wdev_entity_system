@@ -6,7 +6,7 @@ local SUBTITLE = '~b~Wdev Solutions'
 local LANG = Config.Lang or {}
 local maximumItemsPerPage = type(Config.maximumItemsPerPage) == 'number' and Config.maximumItemsPerPage or 9
 local LimitListEntitiesPool = (type(Config.LimitListEntitiesPool) == 'number' and Config.LimitListEntitiesPool > 0) and
-                                  Config.LimitListEntitiesPool
+    Config.LimitListEntitiesPool
 
 local _menuPool = NativeUI.CreatePool()
 local mainMenu = NativeUI.CreateMenu(MENU_TITLE, SUBTITLE, 0, 0, 'prop_screen_nhp_base3', '3_1_setup_02')
@@ -258,7 +258,6 @@ local lineThread = function()
                 Citizen.Wait(1)
             end
         end)
-
     end
 end
 
@@ -369,7 +368,6 @@ local createEntity = function(entityType, entityHash)
         attempt = attempt + 1
     end
     if HasModelLoaded(entityHash) then
-
         if entityType == 'CPed' then
             local entity = CreatePed(4, entityHash, cdsPlayer.x, cdsPlayer.y, cdsPlayer.z, heading, isNetwork, 1)
             local c = 0
@@ -465,9 +463,7 @@ local createEntity = function(entityType, entityHash)
             end
             return
         end
-
     end
-
 end
 
 local function menu_item_createEntity(menu, entityText, objectGamePool)
@@ -502,7 +498,6 @@ local function menu_item_createEntity(menu, entityText, objectGamePool)
             submenu:Clear()
 
             if LANG.createSystem_create and LANG.createSystem_confirm and LANG.createSystem_cancel then
-
                 itemsMenu.create = NativeUI.CreateItem(LANG.createSystem_create)
                 submenu:AddItem(itemsMenu.create)
 
@@ -517,7 +512,6 @@ local function menu_item_createEntity(menu, entityText, objectGamePool)
                 submenu:CurrentSelection(0)
                 --  submenu.ActiveItem = 0
             end
-
         end
 
         local addCallbacks = function()
@@ -527,7 +521,6 @@ local function menu_item_createEntity(menu, entityText, objectGamePool)
                 end
             end)
             submenu.OnItemSelect = function(sender, _item, index)
-
                 if _item == itemsMenu.create then
                     local entityModelResponse = input()
                     if entityModelResponse then
@@ -581,7 +574,6 @@ end
 
 local function menu_item_propInformation(menu)
     if LANG.entityInfo and LANG.entityInfoDescription then
-
         local itemsInfo = {}
 
         local mouseEnabled = false
@@ -602,7 +594,6 @@ local function menu_item_propInformation(menu)
 
                 local langInfo = LANG.propInfoList
                 if langInfo then
-
                     if langInfo.id then
                         itemsInfo.id = {}
                         itemsInfo.id.menu = addItemInfo(langInfo.id .. tostring(selectedEntity))
@@ -639,7 +630,7 @@ local function menu_item_propInformation(menu)
                         local heading = GetEntityHeading(selectedEntity)
                         itemsInfo.heading = {}
                         itemsInfo.heading.menu = addItemInfo(langInfo.heading ..
-                                                                 string.format("%.2f", tonumber(heading)))
+                            string.format("%.2f", tonumber(heading)))
                         itemsInfo.heading.value = heading
                     end
 
@@ -677,7 +668,6 @@ local function menu_item_propInformation(menu)
 
                     local success, isNetworked = pcall(NetworkGetEntityIsNetworked, selectedEntity)
                     if success then
-
                         if langInfo.isNetworked and langInfo.isNetworkedYes and langInfo.isNetworkedNo then
                             itemsInfo.isNetworked = {}
                             local text = isNetworked and langInfo.isNetworkedYes or langInfo.isNetworkedNo
@@ -686,24 +676,20 @@ local function menu_item_propInformation(menu)
                         end
 
                         if isNetworked then
-
                             if langInfo.entityNetID then
                                 local netId = NetworkGetNetworkIdFromEntity(selectedEntity)
                                 itemsInfo.entityNetID = {}
                                 itemsInfo.entityNetID.menu = addItemInfo(langInfo.entityNetID .. netId)
                                 itemsInfo.entityNetID.value = netId
                             end
-
                         end
                     end
-
                 end
             end
             _menuPool:goToFirstElementMenu()
         end
 
         local addCallbacks = function()
-
             menu.OnMenuChanged = function(_menu, _newmenu, forward) --
                 if menu == _menu then
                     onOpenMenu()
@@ -711,7 +697,6 @@ local function menu_item_propInformation(menu)
             end
 
             submenu.OnItemSelect = function(sender, item, index)
-
                 for k, v in pairs(itemsInfo) do
                     if item == v.menu then
                         copyText(v.value)
@@ -719,9 +704,7 @@ local function menu_item_propInformation(menu)
                         return
                     end
                 end
-
             end
-
         end
 
         addCallbacks()
@@ -746,6 +729,9 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
         local toggleMutableMenuOptions = function(state)
             if menuItems.propMoveMenu then
                 NativeUI.toggleEnableComponent(menuItems.propMoveMenu, state)
+            end
+            if menuItems.propCloneMenu then
+                NativeUI.toggleEnableComponent(menuItems.propCloneMenu, state)
             end
             if menuItems.propDeleteMenu then
                 NativeUI.toggleEnableComponent(menuItems.propDeleteMenu, state)
@@ -828,6 +814,14 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
                 NativeUI.toggleEnableComponent(newitem, false)
             end
         end
+        local addClone = function()
+            if LANG.cloneEntity and LANG.cloneEntityDescription then
+                local newitem = NativeUI.CreateItem(LANG.cloneEntity, LANG.cloneEntityDescription)
+                submenu:AddItem(newitem)
+                menuItems.propCloneMenu = newitem
+                NativeUI.toggleEnableComponent(newitem, false)
+            end
+        end
         local addDelete = function()
             if LANG.deleteEntity and LANG.deleteEntityDescription then
                 local newitem = NativeUI.CreateItem(LANG.deleteEntity, LANG.deleteEntityDescription)
@@ -853,9 +847,7 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
         end
 
         local addCallbacks = function()
-
             submenu.OnCheckboxChange = function(_menu, _item, _checked)
-
                 if _item == menuItems.lineMenu then
                     if _checked then
                         lineThread()
@@ -899,11 +891,9 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
                     end)
                     return
                 end
-
             end
 
             submenu.OnItemSelect = function(sender, item, index)
-
                 if item == menuItems.refreshMenu then
                     updateItems()
                     if LANG.refreshListNotify then
@@ -916,7 +906,6 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
                     forceControlOfEntity(selectedEntity, function(success)
                         if success then
                             if selectedEntity and DoesEntityExist(selectedEntity) then
-
                                 local camConfig = {
                                     position = GetFinalRenderedCamCoord(),
                                     rotation = GetFinalRenderedCamRot()
@@ -951,10 +940,27 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
                     end
                 end
 
+                if item == menuItems.propCloneMenu then
+                    if selectedEntity and DoesEntityExist(selectedEntity) then
+                        forceControlOfEntity(selectedEntity, function(success)
+                            if success then
+                                local heading = GetEntityHeading(selectedEntity)
+                                local cds = GetEntityCoords(selectedEntity)
+                                local hash = GetEntityModel(selectedEntity)
+                                local entity = createEntity(objectGamePool, hash)
+                                if entity then
+                                    SetEntityNoCollisionEntity(entity, selectedEntity, true)
+                                    DetachEntity(entity, true, true)
+                                    SetEntityCoords(entity, cds.x, cds.y, cds.z, false, false, false, false)
+                                    SetEntityHeading(entity, heading)
+                                end
+                            end
+                        end)
+                    end
+                end
             end
 
             submenu.OnListChange = function(_menu, _list, _newindex)
-
                 if _list == menuItems.propMenu then
                     local propId = _list:IndexToItem(_newindex)
                     setSelectedEntity(propId)
@@ -972,7 +978,6 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
                     updateItems()
                     return
                 end
-
             end
 
             local onMenuClose = function()
@@ -992,7 +997,6 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
             submenu.OnMenuClosed = function(_menu)
                 onMenuClose()
             end
-
         end
 
         createEntityItemMenu = menu_item_createEntity(submenu, entityText, objectGamePool)
@@ -1002,6 +1006,7 @@ local function menu_item_propsList(menu, entityText, objectGamePool)
         lineSelectEntity()
         setDead()
         addMove()
+        addClone()
         addDelete()
         addFreeze()
         addRefresh()
@@ -1103,7 +1108,6 @@ local proccessCallbacksMainMenu = function()
     end
 
     mainMenu.OnListChange = function(menu, list, newindex)
-
         if radiusItemMainMenu and list == radiusItemMainMenu then
             local quantity = list:IndexToItem(newindex)
             radius_mainMenu = tonumber(quantity)
@@ -1117,9 +1121,7 @@ local proccessCallbacksMainMenu = function()
                 end
             end
         end
-
     end
-
 end
 proccessCallbacksMainMenu()
 -------------------------------------------------------
@@ -1221,4 +1223,3 @@ exports("toggleMenu", toggleMenu)
 --     exports[wdev_entity_system]:toggleMenu(state)
 --     DESCRIPTION:  Enables/Disables Props System Menu
 --    -- =============================================================================
-

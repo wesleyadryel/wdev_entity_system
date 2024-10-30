@@ -1,23 +1,23 @@
 Config = {}
 
-Config.validatePermission = false -- 'wdev_entity_system:admin' -- false to disable
-Config.commandOpen = 'menu' -- or false to disable
+Config.validatePermission = false    -- 'wdev_entity_system:admin' -- false to disable
+Config.commandOpen = 'menu'          -- or false to disable
 Config.createEntitiesWithNetwork = true
 Config.LimitListEntitiesPool = false -- number or false/0 to disable
-Config.maximumItemsPerPage =  5
+Config.maximumItemsPerPage = 5
 
 Config.LineColors = {
     all = {
-        vehicles ={r=177, g=52, b=209, a=255},
-        peds = {r=229, g=210, b=79, a=255},
-        props = {r=120, g=210, b=9, a=255}
+        vehicles = { r = 177, g = 52, b = 209, a = 255 },
+        peds = { r = 229, g = 210, b = 79, a = 255 },
+        props = { r = 120, g = 210, b = 9, a = 255 }
     },
-    submenu = {r=209, g=52, b=78, a=255}
+    submenu = { r = 209, g = 52, b = 78, a = 255 }
 }
 
 Config.Lang = {
 
-    requetControlOfEntity = "It appears that this entity is under the control of another player. Requesting control... Try again in 1 second",
+    requetControlOfEntity = 'It appears that this entity is under the control of another player. Requesting control... Try again in 1 second',
 
     props = 'Props',
     vehicles = 'Vehicles',
@@ -54,9 +54,12 @@ Config.Lang = {
 
     freezeEntity = 'Freeze Entity',
     freezeEntityDescription = 'Use this function to freeze the entity',
-    
+
     moveEntity = 'Move Entity',
     moveEntityDescription = 'Use this function to move the entity',
+
+    cloneEntity = 'Clone Entity',
+    cloneEntityDescription = 'Use this function to clone the entity',
 
     deleteEntity = 'Delete Entity',
     deleteEntityDescription = 'Use this function to delete the entity (only objects created by script)',
